@@ -15,31 +15,30 @@ In this step, we will update the code for the **book_create** created function i
 2. Download source code file to your device 
 {{%attachments title="Source code" pattern=".*\.(zip)$"/%}}
 
-4. At **resize-image** page.
+3. At **book_create** page.
     - Click **Upload from** button.
     - Choose **.zip file**.
-![CreateFunction](/images/temp/1/3.png?width=90pc)
+![LambdaConsole](/images/temp/1/24.png?width=90pc)
 
-5. At **Upload a .zip file** modal.
+4. At **Upload a .zip file** modal.
     - Click **Upload** button and select the downloaded source code file.
     - Click **Save**.
-![CreateFunction](/images/temp/1/4.png?width=90pc)
+![LambdaConsole](/images/temp/1/25.png?width=90pc)
 
-6. At **resize-image** page.
+5. At **book_create** page.
     - Click **Configuration** tab.
     - Click **Environment variables** on the left menu.
     - Click **Edit**.
-![CreateFunction](/images/temp/1/5.png?width=90pc)
+![CreateFunction](/images/temp/1/26.png?width=90pc)
 
-7. At **Edit environment variables** page.
+6. At **Edit environment variables** page.
     - Click **Add environment variable**, then add the following environment variables:
-      - **WIDTH**: enter the new width of the photo, such as 200px.
-      - **HEIGHT**: enter the new hight of the photo, such as 280px.
-      - **DES_BUCKET**: S3 bucket name to store the changed image, such as: **book-image-resize-stores-by-myself**.
+      - **BUCKET_NAME**: enter the new width of the photo, such as **book-image-stores-by-myself**.
+      - **TABLE_NAME**: enter the new hight of the photo, such as **Books**.
     - Then click **Save**.
-![CreateFunction](/images/temp/1/6.png?width=90pc)
+![CreateFunction](/images/temp/1/27.png?width=90pc)
 
-4. Give the Lambda function permission to write a file to the S3 bucket.
+1. Give the Lambda function permission to write a file to the S3 bucket.
     - Click **Configuration** tab
     - Select **Permissions** pattern on the left menu
     - Click on the role the function is executing
