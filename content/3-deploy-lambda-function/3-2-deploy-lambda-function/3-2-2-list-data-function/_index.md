@@ -5,14 +5,17 @@ weight : 2
 chapter : false
 pre : " <b> 3.2.2 </b> "
 ---
-We will create a Lambda function that reads all the data in the DynamoDB table:
-1. Click **Create function**
-![LambdaListFunction](/images/1/25.png?width=90pc)
+We will create a Lambda function that reads all the data in the DynamoDB table.
+1. Open [AWS Lambda console](https://ap-southeast-2.console.aws.amazon.com/lambda/home?region=ap-southeast-2#/functions).
+    - Click **Functions**.
+    - Click **Create function**.
+![LambdaListFunction](/images/temp/1/33.png?width=90pc)
 
-2. Enter function name, such as: **books_list**
-    - Select **Python 3.9** for **Runtime** pattern
-    - Click **Create function**
-![LambdaListFunction](/images/1/26.png?width=90pc)
+2. At **Create function** page.
+    - Enter function name, such as: **books_list**.
+    - Select **Python 3.11** for **Runtime** pattern.
+    - Click **Create function**.
+![LambdaListFunction](/images/temp/1/34.png?width=90pc)
 
 3. Copy the below code block and paste to **lambda_function.py**.
     ```
