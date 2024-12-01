@@ -5,13 +5,17 @@ weight : 3
 chapter : false
 pre : " <b> 3.2.3 </b> "
 ---
-We will create a Lambda function that deletes all items with the specified partition key and sort key in the DynamoDB table. And delete the image file in the S3 bucket:
-1. Click **Create function**
-![LambdaListFunction](/images/1/32.png?width=90pc)
+We will create a Lambda function that deletes all items with the specified partition key and sort key in the DynamoDB table. And delete the image file in the S3 bucket.
 
-2. Enter function name, ví dụ: **book_delete**
-    - Select **Python 3.9** for **Runtime** pattern
-    - Click **Create function**
+1. Open [AWS Lambda console](https://ap-southeast-2.console.aws.amazon.com/lambda/home?region=ap-southeast-2#/functions).
+    - Click **Functions**.
+    - Click **Create function**.
+![LambdaListFunction](/images/temp/1/33.png?width=90pc)
+
+2. At **Create function** page.
+    - Enter function name, such as: **books_list**.
+    - Select **Python 3.11** for **Runtime** pattern.
+    - Click **Create function**.
 ![LambdaListFunction](/images/1/33.png?width=90pc)
 3. Copy the below code block into **lambda_function.py**
     ```

@@ -6,6 +6,7 @@ chapter : false
 pre : " <b> 3.2.2 </b> "
 ---
 We will create a Lambda function that reads all the data in the DynamoDB table.
+
 1. Open [AWS Lambda console](https://ap-southeast-2.console.aws.amazon.com/lambda/home?region=ap-southeast-2#/functions).
     - Click **Functions**.
     - Click **Create function**.
