@@ -33,8 +33,8 @@ In this step, we will update the code for the **book_create** created function i
 
 6. At **Edit environment variables** page.
     - Click **Add environment variable**, then add the following environment variables:
-      - **BUCKET_NAME**: enter the new width of the photo, such as **book-image-stores-by-myself**.
-      - **TABLE_NAME**: enter the new hight of the photo, such as **Books**.
+      - **BUCKET_NAME**: enter the bucket name, such as **book-image-stores-by-myself**.
+      - **TABLE_NAME**: enter the table name, such as **Books**.
     - Then click **Save**.
 ![CreateFunction](/images/temp/1/27.png?width=90pc)
 
@@ -59,7 +59,7 @@ In this step, we will update the code for the **book_create** created function i
                   "Effect": "Allow",
                   "Action": "s3:PutObject",
                   "Resource": "arn:aws:s3:::book-image-store-by-myself/*"
-              }       
+              }
       ```
     - Click **Next**.
 ![CreateFunction](/images/temp/1/31.png?width=90pc)

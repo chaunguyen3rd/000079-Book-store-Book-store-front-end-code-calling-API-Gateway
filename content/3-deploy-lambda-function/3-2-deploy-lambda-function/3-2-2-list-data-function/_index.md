@@ -17,94 +17,102 @@ We will create a Lambda function that reads all the data in the DynamoDB table.
     - Click **Create function**.
 ![LambdaListFunction](/images/temp/1/34.png?width=90pc)
 
-3. Copy the below code block and paste to **lambda_function.py**.
+3. At **books_list** page.
+    - Copy the below code block and paste to **lambda_function.py**.
     ```
-    import json
     import boto3
-    from decimal import *
-    from boto3.dynamodb.types import TypeDeserializer
+    import os
+    import simplejson as json
 
-    client = boto3.client('dynamodb') 
-    serializer = TypeDeserializer()
+    TABLE = os.environ['TABLE_NAME']
 
-    class DecimalEncoder(json.JSONEncoder):
-        def default(self, obj):
-            if isinstance(obj, Decimal):
-                return str(obj)
-            return json.JSONEncoder.default(self, obj)
-                
-    def deserialize(data):
-        if isinstance(data, list):
-            return [deserialize(v) for v in data]
+    # Get the service resource
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table(TABLE)
 
-        if isinstance(data, dict):
-            try:
-                return serializer.deserialize(data)
-            except TypeError:
-                return {k: deserialize(v) for k, v in data.items()}
-        else:
-            return data
+    header_res = {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,DELETE",
+        "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+    }
+
+    secondary_index = "name-index"
+
 
     def lambda_handler(event, context):
-        data_books = client.scan(
-            TableName='Books',
-            IndexName='name-index'
-        )
-        format_data_books = deserialize(data_books["Items"])
-        for book in format_data_books:
-            data_comment = client.query(
-                TableName="Books", 
-                KeyConditionExpression="id = :id AND rv_id > :rv_id", 
-                ExpressionAttributeValues={
-                    ":id": {"S": book['id']}, 
-                    ":rv_id": {"N": "0"}
-                }
+        try:
+            books_data = table.scan(
+                TableName=TABLE,
+                IndexName=secondary_index
             )
-            format_data_comment = deserialize(data_comment['Items'])
-            print(data_comment['Items'])
-            book["comments"] = format_data_comment
-                
-        print (format_data_books)
-        return {
-            "statusCode": 200,
-            "headers": {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE, OPTIONS",
-                "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,X-Access-Token,XKey,Authorization"
-            },
-            "body": json.dumps(format_data_books, cls=DecimalEncoder)
-        }
+
+            books = books_data.get('Items', [])
+
+            for book in books:
+                data_comment = table.query(
+                    TableName=TABLE,
+                    KeyConditionExpression="id = :id AND rv_id > :rv_id",
+                    ExpressionAttributeValues={
+                        ":id": book['id'],
+                        ":rv_id": 0
+                    }
+                )
+
+                book['comments'] = data_comment['Items']
+
+            return {
+                "statusCode": 200,
+                "headers": header_res,
+                "body": json.dumps(books, use_decimal=True)
+            }
+        except Exception as e:
+            print(f'Error getting items: {e}')
+            raise Exception(f'Error getting items: {e}')
     ```
     - Click **Deploy**
-![LambdaListFunction](/images/1/27.png?width=90pc)
+  ![LambdaListFunction](/images/temp/1/35.png?width=90pc)
+    - Click **Configuration** tab.
+    - Click **Environment variables** on the left menu.
+    - Click **Edit**.
+  ![LambdaListFunction](/images/temp/1/36.png?width=90pc)
 
-4. Next, give the function permission to read data from DynamoDB
+4. At **Edit environment variables** page.
+    - Click **Add environment variable**, then add the following environment variables:
+      - **TABLE_NAME**: enter the table name, such as **Books**.
+    - Then click **Save**.
+![LambdaListFunction](/images/temp/1/37.png?width=90pc)
+
+5. Next, give the function permission to read data from DynamoDB
     - Click **Configuration** tab
     - Select **Permissions** pattern on the left menu
     - Click on the role the function is executing
-![LambdaListFunction](/images/1/28.png?width=90pc)
+  ![LambdaListFunction](/images/temp/1/38.png?width=90pc)
 
+6. At **books_list-role-...** page.
     - Click on the existing policy that starts with **AWSLambdaExecutionRole-**
-    - Click **Edit policy**
-![LambdaListFunction](/images/1/29.png?width=90pc)
-    - Click **JSON** tab and add the below json block:
-        ```
-        ,
-                {
-                    "Effect": "Allow",
-                    "Action": [
-                        "dynamodb:Scan",
-                        "dynamodb:Query"
-                    ],
-                    "Resource": "arn:aws:dynamodb:AWS_REGION:ACCOUNT_ID:table/Books"
-                }
-        ```
-    - Replace **AWS_REGION** with the region where you create the table in DynamoDB, such as: **ap-southeast-2**
-    - Replace **ACCOUNT_ID** with your account id
-    - Click **Review policy**
-![LambdaListFunction](/images/1/30.png?width=90pc)
+    - Click **Edit policy**.
+![LambdaListFunction](/images/temp/1/39.png?width=90pc) 
 
-    - Review the settings and click **Save changes**
-![LambdaListFunction](/images/1/31.png?width=90pc)
+7. At **Step 1: Modify permissions in AWSLambdaBasicExecutionRole-...** page.
+    - Add the below json block to **Policy editor**:
+      ```
+      {
+                  "Effect": "Allow",
+                  "Action": [
+                      "dynamodb:Scan",
+                      "dynamodb:Query"
+                  ],
+                  "Resource": "arn:aws:dynamodb:AWS_REGION:ACCOUNT_ID:table/Books"
+              }
+      ```
+    - Replace **AWS_REGION** with the region where you create the table in DynamoDB, such as: **us-east-1**.
+    - Replace **ACCOUNT_ID** with your account id.
+    - Click **Next**.
+![LambdaListFunction](/images/temp/1/40.png?width=90pc)
+
+8. At **Review and save** page.
+    - Click **Save changes**.
+![LambdaListFunction](/images/temp/1/41.png?width=90pc)
+    
 
