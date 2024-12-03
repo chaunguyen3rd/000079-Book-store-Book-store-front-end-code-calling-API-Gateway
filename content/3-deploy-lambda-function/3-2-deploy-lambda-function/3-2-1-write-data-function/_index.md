@@ -39,9 +39,9 @@ In this step, we will update the code for the **book_create** created function i
 ![CreateFunction](/images/temp/1/27.png?width=90pc)
 
 7. Give the Lambda function permission to write a file to the S3 bucket.
-    - Click **Configuration** tab
-    - Select **Permissions** pattern on the left menu
-    - Click on the role the function is executing
+    - Click **Configuration** tab.
+    - Select **Permissions** pattern on the left menu.
+    - Click on the role the function is executing.
 ![CreateFunction](/images/temp/1/28.png?width=90pc)
 
 8. At **book_create-role-...** page.

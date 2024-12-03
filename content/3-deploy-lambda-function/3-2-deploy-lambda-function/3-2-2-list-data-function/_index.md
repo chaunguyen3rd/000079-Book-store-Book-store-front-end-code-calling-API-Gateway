@@ -84,15 +84,15 @@ We will create a Lambda function that reads all the data in the DynamoDB table.
     - Then click **Save**.
 ![LambdaListFunction](/images/temp/1/37.png?width=90pc)
 
-5. Next, give the function permission to read data from DynamoDB
-    - Click **Configuration** tab
-    - Select **Permissions** pattern on the left menu
-    - Click on the role the function is executing
+5. Next, give the function permission to read data from DynamoDB.
+    - Click **Configuration** tab.
+    - Select **Permissions** pattern on the left menu.
+    - Click on the role the function is executing.
   ![LambdaListFunction](/images/temp/1/38.png?width=90pc)
 
 6. At **books_list-role-...** page.
-    - Click on the existing policy that starts with **AWSLambdaExecutionRole-**
-    - Click **Edit policy**.
+    - Click on the existing policy that starts with **AWSLambdaExecutionRole-**.
+    - Click **Edit**.
 ![LambdaListFunction](/images/temp/1/39.png?width=90pc) 
 
 7. At **Step 1: Modify permissions in AWSLambdaBasicExecutionRole-...** page.
@@ -107,8 +107,8 @@ We will create a Lambda function that reads all the data in the DynamoDB table.
                   "Resource": "arn:aws:dynamodb:AWS_REGION:ACCOUNT_ID:table/Books"
               }
       ```
-    - Replace **AWS_REGION** with the region where you create the table in DynamoDB, such as: **us-east-1**.
-    - Replace **ACCOUNT_ID** with your account id.
+      - Replace **AWS_REGION** with the region where you create the table in DynamoDB, such as: **us-east-1**.
+      - Replace **ACCOUNT_ID** with your account id.
     - Click **Next**.
 ![LambdaListFunction](/images/temp/1/40.png?width=90pc)
 
