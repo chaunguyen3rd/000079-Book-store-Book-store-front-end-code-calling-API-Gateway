@@ -71,7 +71,7 @@ We will create a Lambda function that reads all the data in the DynamoDB table.
             print(f'Error getting items: {e}')
             raise Exception(f'Error getting items: {e}')
     ```
-    - Click **Deploy**
+    - Click **Deploy**.
   ![LambdaListFunction](/images/temp/1/35.png?width=90pc)
     - Click **Configuration** tab.
     - Click **Environment variables** on the left menu.
