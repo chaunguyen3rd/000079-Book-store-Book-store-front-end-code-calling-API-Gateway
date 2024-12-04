@@ -7,105 +7,64 @@ pre : " <b> 3.2.1 </b> "
 ---
 Trong bước này chúng ta sẽ cập nhật lại code cho function **book_create** đã tạo ở bài số 1:
 
-1. Mở bảng điều khiển của [AWS Lambda](https://ap-southeast-2.console.aws.amazon.com/lambda/home?region=ap-southeast-2#/functions), nhấn vào ***book_create** function đã tạo từ bài số 1
-![LambdaConsole](/images/1/21.png?width=90pc)
-3. Sao chép đoạn code sau vào mục **lambda_function.py**
-        ```
-        import boto3
-        import json
-        import base64
-        import io
-        import cgi
-        import os
+1. Mở bảng điều khiển của [AWS Lambda](https://ap-southeast-2.console.aws.amazon.com/lambda/home?region=ap-southeast-2#/functions).
+    - Click **Functions**.
+    - Choose **book_create** function.
+![LambdaConsole](/images/temp/1/23.png?width=90pc)
 
-        s3 = boto3.client('s3')
-        client = boto3.resource('dynamodb')
-        runtime_region = os.environ['AWS_REGION']
+2. Tải tệp mã nguồn code vào máy của bạn.
+{{%attachments title="Source code" pattern=".*\.(zip)$"/%}}
 
-        def get_data_from_request_body(content_type, body):
-            fp = io.BytesIO(base64.b64decode(body)) # decode
-            environ = {"REQUEST_METHOD": "POST"}
-            headers = {
-                "content-type": content_type,
-                "content-length": len(body),
-            }
+3. Ở trang **book_create**.
+    - Nhấn nút **Upload from**.
+    - Chọn **.zip file**.
+![LambdaConsole](/images/temp/1/24.png?width=90pc)
 
-            fs = cgi.FieldStorage(fp=fp, environ=environ, headers=headers) 
-            return [fs, None]
-            
-        def lambda_handler(event, context):
-            content_type = event['headers'].get('Content-Type', '') or event['headers'].get('content-type', '')
-            
-            if content_type == 'application/json':
-                book_item = json.loads(event["body"])
-            else:
-                book_data, book_data_error = get_data_from_request_body(
-                    content_type=content_type, body=event["body"]
-                )
-            
-                name = book_data['image'].filename
-                image = book_data['image'].value
-                s3.put_object(Bucket='book-image-store', Key=name, Body=image)
-                image_path = "https://{}.s3.{}.amazonaws.com/{}".format("book-image-resize-store", runtime_region, name)
-                
-                book_item = {
-                    "id": book_data['id'].value,
-                    "rv_id": 0,
-                    "name": book_data['name'].value,
-                    "author": book_data['author'].value,
-                    "price" : book_data['price'].value,
-                    "category": book_data['category'].value,
-                    "description": book_data['description'].value,
-                    "image": image_path
-                }
-            
-            table = client.Table('Books')
-            table.put_item(Item = book_item)
-            
-            response = {
-                'statusCode': 200,
-                'body': 'successfully created item!',
-                'headers': {
-                    'Content-Type': 'application/json',
-                    "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,X-Access-Token, XKey, Authorization",
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS"
-                },
-            }
-        
-            return response
-        ```
-    - Sau đó ấn **Deploy**
-{{% notice note %}}
-Code xử lý ảnh mà người dùng muốn tải lên và được lưu trong S3 bucket
-{{% /notice %}}
-{{% notice warning %}}
-Nếu bạn tạo bộ chứa S3 có tên khác với lab, hãy thay chúng tại dòng 35 và 36 trong code
-{{% /notice %}}
+4. Ở hộp thoại **Upload a .zip file**.
+    - Nhấn nút **Upload** và chọn tệp mã nguồn đã được tải về.
+    - Nhấn nút **Save**.
+![LambdaConsole](/images/temp/1/25.png?width=90pc)
 
-4. Cấp quyền cho Lambda function có thể ghi tệp vào S3 bucket.
-    - Ấn sang tab **Configuration**
-    - Chọn mục **Permissions** ở menu bên trái
-    - Ấn vào role mà function đang thực hiện.
-![LambdaConsole](/images/1/22.png?width=90pc)
+5. Ở trang **book_create**.
+    - Nhấn vào tab **Configuration**.
+    - Nhấn vào **Environment variables** ở menu bên trái.
+    - Nhấn vào **Edit**.
+![CreateFunction](/images/temp/1/26.png?width=90pc)
 
-    - Ấn vào policy có sẵn bắt đầu bằng **AWSLambdaExecutionRole-**
-    - Ấn nút **Edit policy**
-    - Ấn sang tab **JSON** và thêm đoạn json sau:
-        ```
-        ,
-                {
-                    "Effect": "Allow",
-                    "Action": "s3:PutObject",
-                    "Resource": "arn:aws:s3:::book-image-store/*"
-                }
-        ```
-        ![LambdaConsole](/images/1/23.png?width=90pc)
-    - Ấn nút **Review policy**
-    - Xem lại các thiết lập và ấn **Save changes**
-![LambdaConsole](/images/1/24.png?width=90pc)
+6. Ở trang **Edit environment variables**.
+    - Nhấn **Add environment variable**, sau đó thêm những biến môi trường sau:
+      - **BUCKET_NAME**: Nhập tên bucket, ví dụ **book-image-stores-by-myself**.
+      - **BUCKET_RESIZE_NAME**: Nhập tên bucket, ví dụ **book-image-resize-stores-by-myself**.
+      - **TABLE_NAME**: Nhập tên bảng, ví dụ **Books**.
+    - Sau đó nhấn **Save**.
+![CreateFunction](/images/temp/1/27.png?width=90pc)
 
+7. Thêm những quyền cần thiết cho Lambda function để viết file vào S3 bucket.
+    - Nhấn vào tab **Configuration**.
+    - Chọn **Permissions** ở menu bên trái.
+    - Nhấn vào role của function đang thực hiện.
+![CreateFunction](/images/temp/1/28.png?width=90pc)
 
+8. Ở trang **book_create-role-...**.
+    - Chọn chính sách hiện có mà bắt đầu bằng **AWSLambdaExecutionRole-...**.
+![CreateFunction](/images/temp/1/29.png?width=90pc)
 
+9. Ở trang **AWSLambdaBasicExecutionRole-...**.
+    - Nhấn vào **Edit**.
+![CreateFunction](/images/temp/1/30.png?width=90pc)
 
+10. Ở trang **Step 1: Modify permissions in AWSLambdaBasicExecutionRole-**.
+    - Thêm đoạn code json sau vào **Policy editor**.
+      ```
+      {
+                  "Effect": "Allow",
+                  "Action": "s3:PutObject",
+                  "Resource": "arn:aws:s3:::book-image-stores-by-myself/*"
+              }
+      ```
+    - Nhấn vào **Next**.
+![CreateFunction](/images/temp/1/31.png?width=90pc)
 
+11. Ở trang **Step 2: Review and save**.
+    - Xem lại cấu hình và bấm **Save changes**.
+![CreateFunction](/images/temp/1/32.png?width=90pc)

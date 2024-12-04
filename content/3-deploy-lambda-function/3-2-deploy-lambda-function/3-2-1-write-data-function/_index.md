@@ -12,7 +12,7 @@ In this step, we will update the code for the **book_create** created function i
     - Choose **book_create** function.
 ![LambdaConsole](/images/temp/1/23.png?width=90pc)
 
-2. Download source code file to your device 
+2. Download source code file to your device.
 {{%attachments title="Source code" pattern=".*\.(zip)$"/%}}
 
 3. At **book_create** page.
