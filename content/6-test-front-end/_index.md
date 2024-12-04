@@ -20,13 +20,14 @@ After testing that the APIs work properly with Postman, we will test the APIs th
     yarn build
     aws s3 cp build s3://fcj-book-shop-by-myself --recursive
     ```
+
 4. Paste the endpoint of S3 static web into your browser. The app already shows the book information, but still no pictures because we haven't uploaded the pictures yet.
 ![CreateRestAPI](/images/temp/1/86.png?width=90pc)
 So the listing API is working properly.
 
-5. Test writing API
-    - Click **Management** tab
-    - Click **Update**
+5. Test writing API.
+    - Click **Management** tab.
+    - Click **Update**.
   ![CreateRestAPI](/images/temp/1/87.png?width=90pc)
     - Edit whatever you want except **id**.
     - Click **Choose image**.
@@ -55,7 +56,7 @@ So the listing API is working properly.
   ![CreateRestAPI](/images/temp/1/91.png?width=90pc)
 
 6. Test the deleting API.
-    - Click **Management** tab
+    - Click **Management** tab.
     - Click **Update**.
   ![CreateRestAPI](/images/temp/1/92.png?width=90pc)
     - Click **Delete**.
@@ -63,4 +64,5 @@ So the listing API is working properly.
   ![CreateRestAPI](/images/temp/1/93.png?width=90pc)
     - View results after deleting: no appearing book information.
   ![CreateRestAPI](/images/temp/1/94.png?width=90pc)
+  
 We have finished building a simple SAM-based web application following the serverless model.
