@@ -10,13 +10,13 @@ Chúng ta sẽ tạo một Lambda function xoá toàn bộ item có partition ke
 1. Mở cửa sổ console [AWS Lambda console](https://ap-southeast-2.console.aws.amazon.com/lambda/home?region=ap-southeast-2#/functions).
     - Nhấn vào **Functions**.
     - Nhấn vào **Create function**.
-![LambdaDeleteFunction](/images/temp/1/33.png?width=90pc)
+![LambdaDeleteFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/33.png?width=90pc)
 
 2. Ở trang **Create function**.
     - Nhập tên function, ví dụ: **book_delete**.
     - Chọn **Python 3.11** cho **Runtime**.
     - Nhấn nút **Create function**.
-![LambdaDeleteFunction](/images/temp/1/42.png?width=90pc)
+![LambdaDeleteFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/42.png?width=90pc)
 
 3. Ở trang **book_delete**.
     - Sao chép đoạn code sau và dán vào **lambda_function.py**.
@@ -84,29 +84,29 @@ Chúng ta sẽ tạo một Lambda function xoá toàn bộ item có partition ke
             raise Exception(f'Error deleting item: {e}')
     ```
     - Nhấn **Deploy**.
-  ![LambdaDeleteFunction](/images/temp/1/43.png?width=90pc)
+  ![LambdaDeleteFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/43.png?width=90pc)
     - Nhấn vào tab **Configuration**.
     - Nhấn **Environment variables** ở menu bên trái.
     - Nhấn **Edit**.
-  ![LambdaDeleteFunction](/images/temp/1/44.png?width=90pc)
+  ![LambdaDeleteFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/44.png?width=90pc)
 
 4. Ở trang **Edit environment variables**.
     - Nhấn vào **Add environment variable**, sau đó thêm vào biến môi trường:
       - **BUCKET_NAME**: Nhập tên bucket, ví dụ **book-image-resize-stores-by-myself**.
       - **TABLE_NAME**: Nhập tên bảng, ví dụ **Books**.
     - Then click **Save**.
-![LambdaDeleteFunction](/images/temp/1/45.png?width=90pc)
+![LambdaDeleteFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/45.png?width=90pc)
 
 5. Tiếp theo, thêm quyền cho function để có thể xóa đối tượng ở bucket S3 và truy cập vào bảng DynamoDB.
     - Nhấn vào tab **Configuration**.
     - Chọn **Permissions** ở menu bên trái.
     - Bấm vào role mà function đang thực thi.
-![LambdaDeleteFunction](/images/temp/1/46.png?width=90pc)
+![LambdaDeleteFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/46.png?width=90pc)
 
 6. Ở trang **book_delete-role-...**.
     - Bấm vào chính sách hiện tại bắt đầu bằng **AWSLambdaExecutionRole-**.
     - Nhấn vào **Edit**.
-![LambdaDeleteFunction](/images/temp/1/47.png?width=90pc)
+![LambdaDeleteFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/47.png?width=90pc)
 
 7. Ở trang **Step 1: Modify permissions in AWSLambdaBasicExecutionRole-...**.
     - Thêm đoạn code json vào **Policy editor**:
@@ -128,8 +128,8 @@ Chúng ta sẽ tạo một Lambda function xoá toàn bộ item có partition ke
       - Thay thế **AWS_REGION** bằng region bạn đã tạo bảng, ví dụ: **us-east-1**.
       - Thay thế **ACCOUNT_ID** bằng id tài khoản của bạn.
     - Nhấn vào **Next**.
-![LambdaDeleteFunction](/images/temp/1/48.png?width=90pc)
+![LambdaDeleteFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/48.png?width=90pc)
 
 8. Ở trang **Review and save**.
     - Nhấn vào **Save changes**.
-![LambdaDeleteFunction](/images/temp/1/49.png?width=90pc)
+![LambdaDeleteFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/49.png?width=90pc)

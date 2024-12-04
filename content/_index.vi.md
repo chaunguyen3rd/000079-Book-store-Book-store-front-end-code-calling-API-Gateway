@@ -12,7 +12,7 @@ Trong bài lần trước, chúng ta đã biết cách tạo và sử dụng Lam
 
 Kiến trúc của ứng dụng chúng ta sẽ xây dựng:
 
-![WebArchitect](/images/serverless-architect-diagram.png?featherlight=false&width=50pc)
+![WebArchitect](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/serverless-architect-diagram.png?featherlight=false&width=50pc)
 
 ### Nội dung
 
