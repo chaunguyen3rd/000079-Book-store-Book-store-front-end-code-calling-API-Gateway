@@ -5,7 +5,8 @@ weight : 2
 chapter : false
 pre : " <b> 2. </b> "
 ---
-In the first step in this workshop, we will host the web application (front-end) with S3 Static website hosting:
+In the first step in this workshop, we will host the web application (front-end) with S3 Static website hosting. 
+
 1. Open [Amazon S3 console](https://s3.console.aws.amazon.com/s3/get-started?region=ap-southeast-2).
     - Click **Buckets**.
     - Click **Create bucket**. 
@@ -60,7 +61,7 @@ In the first step in this workshop, we will host the web application (front-end)
 
 6. Download **fcj-serverless-frontend** code to your device.
     - Open command-line/terminal in the folder where you want to save the source code.
-    - Copy the below commands
+    - Copy the below commands.
         ```
         git clone https://github.com/AWS-First-Cloud-Journey/FCJ-Serverless-Workshop.git
         cd FCJ-Serverless-Workshop
@@ -68,7 +69,7 @@ In the first step in this workshop, we will host the web application (front-end)
         yarn build
         ```
 
-7. We have finished building the front-end. Next execute the following command to upload the **build** folder to S3
+7. We have finished building the front-end. Next execute the following command to upload the **build** folder to S3.
     ```
     aws s3 cp build s3://fcj-book-shop-by-myself --recursive
     ```
