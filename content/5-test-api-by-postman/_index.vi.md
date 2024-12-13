@@ -13,7 +13,7 @@ Trong bước này, chúng ta sẽ kiểm tra hoạt động của các API bằ
     - Nhập URL của API liệt kê mà lưu lại từ bước trước.
     - Nhấn vào **Send**.
 ![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/77.png?width=90pc)
-Kết quả trả về là toàn bộ dữ liệu của bảng **Books** đã qua xử lý
+Kết quả trả về là toàn bộ dữ liệu của bảng **Books** đã qua xử lý.
 
 #### Kiểm tra API ghi
 1. Thực hiện tương tự để tạo ra 1 tab mới.
@@ -32,7 +32,7 @@ Kết quả trả về là toàn bộ dữ liệu của bảng **Books** đã qu
     - Nhấn nút **Send**. Đợi một lúc, xem kết quả trả về **Successfully created item**.
 ![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/78.png?width=90pc)
 
-4. Mở bảng **Books** ở bảng điều khiển DynamoDB để kiểm tra dữ liệu.
+2. Mở bảng **Books** ở bảng điều khiển DynamoDB để kiểm tra dữ liệu.
     - Trước khi gọi API ghi.
   ![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/79.png?width=90pc)
     - Sau khi gọi API ghi.
