@@ -62,7 +62,7 @@ Vậy API đọc dữ liệu đã hoạt động đúng.
     - Ấn nút **Delete**.
     - Ấn nút **OK** để xác nhận xoá.
   ![CreateRestAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/93.png?width=90pc)
-    - Xem kết quả sau khi xoá: không còn xuất hiện thông tin sách nữa
+    - Xem kết quả sau khi xoá: không còn xuất hiện thông tin sách nữa.
   ![CreateRestAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/94.png?width=90pc)
 
 Chúng ta đã hoàn thành việc xây dựng một ứng dụng web đơn giản theo mô hình serverless. 
