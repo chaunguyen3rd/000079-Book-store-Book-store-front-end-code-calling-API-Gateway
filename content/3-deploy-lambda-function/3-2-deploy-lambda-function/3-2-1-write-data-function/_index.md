@@ -7,7 +7,7 @@ pre : " <b> 3.2.1 </b> "
 ---
 In this step, we will update the code for the **book_create** created function in post 1:
 
-1. Open [AWS Lambda console](https://ap-southeast-2.console.aws.amazon.com/lambda/home?region=ap-southeast-2#/functions).
+1. Open [AWS Lambda console](https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions).
     - Click **Functions**.
     - Choose **book_create** function.
 ![LambdaConsole](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/23.png?width=90pc)
@@ -55,20 +55,18 @@ In this step, we will update the code for the **book_create** created function i
 
 10. At **Step 1: Modify permissions in AWSLambdaBasicExecutionRole-** page.
     - Add the below json block to **Policy editor**.
-      ```
+
+      ```json
       {
                   "Effect": "Allow",
                   "Action": "s3:PutObject",
                   "Resource": "arn:aws:s3:::book-image-stores-by-myself/*"
               }
       ```
+
     - Click **Next**.
 ![CreateFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/31.png?width=90pc)
 
 11. At **Step 2: Review and save** page.
     - Review the settings and click **Save changes**.
 ![CreateFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/32.png?width=90pc)
-
-
-
-

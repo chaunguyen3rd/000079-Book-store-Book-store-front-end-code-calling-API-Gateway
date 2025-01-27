@@ -38,7 +38,9 @@ pre : " <b> 3.1 </b> "
 ![DynamoDBConsole](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/21.png?width=90pc)
 
 5. Run the following command in the directory where you save the dynamoDB.json
-    ```
+
+    ```bash
     aws dynamodb batch-write-item --request-items file://dynamoDB.json
     ```
-![DynamoDBConsole](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/22.png?width=90pc)
+
+    ![DynamoDBConsole](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/22.png?width=90pc)

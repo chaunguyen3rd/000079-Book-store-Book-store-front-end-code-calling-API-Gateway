@@ -8,6 +8,7 @@ pre : " <b> 5. </b> "
 In this step, we will test operation of the APIs using [Postman](https://www.postman.com/downloads/) tool.
 
 #### Test the listing API
+
 1. Click **+** to add a new tab.
     - Select **GET** method.
     - Enter URL of the listing API that recorded from the previous step.
@@ -16,6 +17,7 @@ In this step, we will test operation of the APIs using [Postman](https://www.pos
 The returned result is the entire data of the **Books** table that has been processed.
 
 #### Test the writing API
+
 1. Similarly create a new tab.
     - Select **POST** method.
     - Enter URL of the writing API that recorded from the previous step.
@@ -32,13 +34,14 @@ The returned result is the entire data of the **Books** table that has been proc
     - Click **Send**. Wait a moment, see the results returned **Successfully created item**.
 ![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/78.png?width=90pc)
 
-4. Open **Books** table in DynamoDB console to check data
+2. Open **Books** table in DynamoDB console to check data
     - Before call the write API.
   ![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/79.png?width=90pc)
     - After call the write API.
   ![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/80.png?width=90pc)
 
 #### Test the deleting API
+
 1. Similarly create a new tab.
     - Select **DELETE** method.
     - Enter URL of the writing API that recorded from the previous step. Change **{id}** to book_id you want to delete, such as **5**.

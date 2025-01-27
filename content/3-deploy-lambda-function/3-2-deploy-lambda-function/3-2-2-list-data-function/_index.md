@@ -20,7 +20,8 @@ We will create a Lambda function that reads all the data in the DynamoDB table.
 
 3. At **books_list** page.
     - Copy the below code block and paste to **lambda_function.py**.
-    ```
+
+    ```python
     import boto3
     import os
     import simplejson as json
@@ -71,6 +72,7 @@ We will create a Lambda function that reads all the data in the DynamoDB table.
             print(f'Error getting items: {e}')
             raise Exception(f'Error getting items: {e}')
     ```
+
     - Click **Deploy**.
   ![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/35.png?width=90pc)
     - Click **Configuration** tab.
@@ -93,11 +95,12 @@ We will create a Lambda function that reads all the data in the DynamoDB table.
 6. At **books_list-role-...** page.
     - Click on the existing policy that starts with **AWSLambdaExecutionRole-**.
     - Click **Edit**.
-![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/39.png?width=90pc) 
+![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/39.png?width=90pc)
 
 7. At **Step 1: Modify permissions in AWSLambdaBasicExecutionRole-...** page.
     - Add the below json block to **Policy editor**:
-      ```
+
+      ```json
       {
                   "Effect": "Allow",
                   "Action": [
@@ -107,6 +110,7 @@ We will create a Lambda function that reads all the data in the DynamoDB table.
                   "Resource": "arn:aws:dynamodb:AWS_REGION:ACCOUNT_ID:table/Books"
               }
       ```
+
       - Replace **AWS_REGION** with the region where you create the table in DynamoDB, such as: **us-east-1**.
       - Replace **ACCOUNT_ID** with your account id.
     - Click **Next**.
@@ -115,5 +119,3 @@ We will create a Lambda function that reads all the data in the DynamoDB table.
 8. At **Review and save** page.
     - Click **Save changes**.
 ![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/41.png?width=90pc)
-    
-

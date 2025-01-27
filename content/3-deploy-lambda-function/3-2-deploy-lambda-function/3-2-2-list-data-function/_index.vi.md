@@ -20,7 +20,8 @@ Chúng ta sẽ tạo một Lambda function đọc toàn bộ dữ liệu trong b
 
 3. Ở trang **books_list**.
     - Sao chép đoạn code sau và dán vào **lambda_function.py**.
-    ```
+
+    ```python
     import boto3
     import os
     import simplejson as json
@@ -71,6 +72,7 @@ Chúng ta sẽ tạo một Lambda function đọc toàn bộ dữ liệu trong b
             print(f'Error getting items: {e}')
             raise Exception(f'Error getting items: {e}')
     ```
+
     - Nhấn **Deploy**.
   ![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/35.png?width=90pc)
     - Nhấn vào tab **Configuration**.
@@ -93,11 +95,12 @@ Chúng ta sẽ tạo một Lambda function đọc toàn bộ dữ liệu trong b
 6. Ở trang **books_list-role-...**.
     - Bấm vào chính sách hiện tại bắt đầu bằng **AWSLambdaExecutionRole-**.
     - Bấm vào **Edit**.
-![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/39.png?width=90pc) 
+![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/39.png?width=90pc)
 
 7. Ở trang **Step 1: Modify permissions in AWSLambdaBasicExecutionRole-...**.
     - Thêm đoạn code json vào **Policy editor**:
-      ```
+
+      ```json
       {
                   "Effect": "Allow",
                   "Action": [
@@ -107,6 +110,7 @@ Chúng ta sẽ tạo một Lambda function đọc toàn bộ dữ liệu trong b
                   "Resource": "arn:aws:dynamodb:AWS_REGION:ACCOUNT_ID:table/Books"
               }
       ```
+
       - Thay thế **AWS_REGION** bằng region bạn đã tạo bảng, ví dụ: **us-east-1**.
       - Thay thế **ACCOUNT_ID** bằng id tài khoản của bạn.
     - Nhấn vào **Next**.
