@@ -25,7 +25,7 @@ Xây dựng các ứng dụng giao tiếp hai chiều theo thời gian thực, c
 
 #### API Gateway hoạt động như thế nào?
 
-![CreateRestAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/1-introduction/New-API-GW-Diagram.png?featherlight=false&width=90pc)
+![CreateRestAPI](/images/1-introduction/New-API-GW-Diagram.png?featherlight=false&width=90pc)
 
 #### Giới thiệu DynamoDB
 

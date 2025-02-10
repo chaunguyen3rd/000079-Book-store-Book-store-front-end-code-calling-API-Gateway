@@ -23,7 +23,7 @@ Build real-time two-way communication applications, such as chat apps and stream
 
 #### How API Gateway Works
 
-![CreateRestAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/1-introduction/New-API-GW-Diagram.png?featherlight=false&width=90pc)
+![CreateRestAPI](/images/1-introduction/New-API-GW-Diagram.png?featherlight=false&width=90pc)
 
 #### Introducing DynamoDB
 

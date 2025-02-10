@@ -10,13 +10,13 @@ We will create a Lambda function that reads all the data in the DynamoDB table.
 1. Open [AWS Lambda console](https://ap-southeast-2.console.aws.amazon.com/lambda/home?region=ap-southeast-2#/functions).
     - Click **Functions**.
     - Click **Create function**.
-![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/33.png?width=90pc)
+![LambdaListFunction](/images/temp/1/33.png?width=90pc)
 
 2. At **Create function** page.
     - Enter function name, such as: **books_list**.
     - Select **Python 3.11** for **Runtime** pattern.
     - Click **Create function**.
-![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/34.png?width=90pc)
+![LambdaListFunction](/images/temp/1/34.png?width=90pc)
 
 3. At **books_list** page.
     - Copy the below code block and paste to **lambda_function.py**.
@@ -74,28 +74,28 @@ We will create a Lambda function that reads all the data in the DynamoDB table.
     ```
 
     - Click **Deploy**.
-  ![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/35.png?width=90pc)
+  ![LambdaListFunction](/images/temp/1/35.png?width=90pc)
     - Click **Configuration** tab.
     - Click **Environment variables** on the left menu.
     - Click **Edit**.
-  ![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/36.png?width=90pc)
+  ![LambdaListFunction](/images/temp/1/36.png?width=90pc)
 
 4. At **Edit environment variables** page.
     - Click **Add environment variable**, then add the following environment variables:
       - **TABLE_NAME**: enter the table name, such as **Books**.
     - Then click **Save**.
-![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/37.png?width=90pc)
+![LambdaListFunction](/images/temp/1/37.png?width=90pc)
 
 5. Next, give the function permission to read data from DynamoDB.
     - Click **Configuration** tab.
     - Select **Permissions** pattern on the left menu.
     - Click on the role the function is executing.
-  ![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/38.png?width=90pc)
+  ![LambdaListFunction](/images/temp/1/38.png?width=90pc)
 
 6. At **books_list-role-...** page.
     - Click on the existing policy that starts with **AWSLambdaExecutionRole-**.
     - Click **Edit**.
-![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/39.png?width=90pc)
+![LambdaListFunction](/images/temp/1/39.png?width=90pc)
 
 7. At **Step 1: Modify permissions in AWSLambdaBasicExecutionRole-...** page.
     - Add the below json block to **Policy editor**:
@@ -114,8 +114,8 @@ We will create a Lambda function that reads all the data in the DynamoDB table.
       - Replace **AWS_REGION** with the region where you create the table in DynamoDB, such as: **us-east-1**.
       - Replace **ACCOUNT_ID** with your account id.
     - Click **Next**.
-![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/40.png?width=90pc)
+![LambdaListFunction](/images/temp/1/40.png?width=90pc)
 
 8. At **Review and save** page.
     - Click **Save changes**.
-![LambdaListFunction](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/41.png?width=90pc)
+![LambdaListFunction](/images/temp/1/41.png?width=90pc)

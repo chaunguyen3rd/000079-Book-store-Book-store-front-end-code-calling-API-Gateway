@@ -12,7 +12,7 @@ Trong bước này, chúng ta sẽ kiểm tra hoạt động của các API bằ
     - Chọn giao thức **GET**.
     - Nhập URL của API liệt kê mà lưu lại từ bước trước.
     - Nhấn vào **Send**.
-![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/77.png?width=90pc)
+![TestListAPI](/images/temp/1/77.png?width=90pc)
 Kết quả trả về là toàn bộ dữ liệu của bảng **Books** đã qua xử lý.
 
 #### Kiểm tra API ghi
@@ -30,26 +30,26 @@ Kết quả trả về là toàn bộ dữ liệu của bảng **Books** đã qu
       - description: Amazon Web Services in Action, Second Edition is a comprehensive introduction to computing, storing, and networking in the AWS cloud. You'll find clear, relevant coverage of all the essential AWS services you to know, emphasizing best practices for security, high availability and scalability
       - image: aws-logo.png
     - Nhấn nút **Send**. Đợi một lúc, xem kết quả trả về **Successfully created item**.
-![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/78.png?width=90pc)
+![TestListAPI](/images/temp/1/78.png?width=90pc)
 
 2. Mở bảng **Books** ở bảng điều khiển DynamoDB để kiểm tra dữ liệu.
     - Trước khi gọi API ghi.
-  ![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/79.png?width=90pc)
+  ![TestListAPI](/images/temp/1/79.png?width=90pc)
     - Sau khi gọi API ghi.
-  ![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/80.png?width=90pc)
+  ![TestListAPI](/images/temp/1/80.png?width=90pc)
 
 #### Kiểm tra API xoá
 1. Thực hiện tương tự để tạo ra 1 tab mới.
     - Chọn giao thức **DELETE**.
     - Nhập URL của API liệt kê mà lưu lại từ bước trước. Thay thế **{id}** thành book_id mà bạn muốn xóa, ví dụ **5**.
     - Nhấn nút **Send**. Đợi một lúc, xem kết quả trả về **Successfully delete item!**.
-![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/81.png?width=90pc)
+![TestListAPI](/images/temp/1/81.png?width=90pc)
 
 2. Mở bảng **Books** ở bảng điều khiển DynamoDB để kiểm tra dữ liệu.
-![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/79.png?width=90pc)
+![TestListAPI](/images/temp/1/79.png?width=90pc)
 
 3. Mở bucket **book-image-resize-stores-by-myself** để kiểm tra đối tượng. **aws-logo.jpg** đã bị xóa.
-![TestListAPI](/000079-Book-store-Book-store-front-end-code-calling-API-Gateway/images/temp/1/82.png?width=90pc)
+![TestListAPI](/images/temp/1/82.png?width=90pc)
 
 
 
