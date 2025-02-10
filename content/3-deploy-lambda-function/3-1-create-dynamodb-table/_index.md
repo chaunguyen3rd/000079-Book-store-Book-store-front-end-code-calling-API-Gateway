@@ -5,29 +5,29 @@ weight : 1
 chapter : false
 pre : " <b> 3.1 </b> "
 ---
-1. Open [DynamoDB console](https://ap-southeast-1.console.aws.amazon.com/dynamodbv2/home?region=ap-southeast-1#dashboard).
-    - Click **Tables**.
-    - Click **Create table**.
-![DynamoDBConsole](/images/temp/1/15.png?width=90pc)
+1. Open [DynamoDB console](https://us-east-1.console.aws.amazon.com/dynamodbv2/home?region=us-east-1#dashboard).
+    - Click the **Tables** on the left menu.
+    - Click the **Create table** button.
+      ![DynamoDBConsole](/images/temp/1/15.png?width=90pc)
 
 2. At **Create table** page.
-    - Enter table name: **Books**.
+    - Enter table name: ``Books``.
     - Enter partition key: `id`.
     - Enter sort key: `rv_id` (review id), type is **Number**.
-  ![DynamoDBConsole](/images/temp/1/16.png?width=90pc)
+      ![DynamoDBConsole](/images/temp/1/16.png?width=90pc)
     - Scroll down, select **Customize settings** at **Table settings**.
     - Select **DynamoDB Standard** at **Table class**.
     - Select **On-demand** at **Read/write capacity settings**.
-  ![DynamoDBConsole](/images/temp/1/17.png?width=90pc)
+      ![DynamoDBConsole](/images/temp/1/17.png?width=90pc)
     - Scroll down, click **Create local index**.
-  ![DynamoDBConsole](/images/temp/1/18.png?width=90pc)
+      ![DynamoDBConsole](/images/temp/1/18.png?width=90pc)
     - At **New local secondary index** modal.
-      - Enter sort key: **name**.
-      - Enter index-name: **name-index**.
-      - Click **Create index**.
-    ![DynamoDBConsole](/images/temp/1/19.png?width=90pc)
-    - Scroll down to the bottom, click **Create table**.
-    ![DynamoDBConsole](/images/temp/1/20.png?width=90pc)
+      - Enter sort key: `name`.
+      - Enter index-name: `name-index`.
+      - Click the **Create index** button.
+        ![DynamoDBConsole](/images/temp/1/19.png?width=90pc)
+    - Scroll down to the bottom, click the **Create table** button.
+      ![DynamoDBConsole](/images/temp/1/20.png?width=90pc)
 
     So we have created the **Books** table with the Local secondary index of **name-index**.
 

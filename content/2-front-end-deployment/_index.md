@@ -5,7 +5,7 @@ weight : 2
 chapter : false
 pre : " <b> 2. </b> "
 ---
-In the first step in this workshop, we will host the web application (front-end) with S3 Static website hosting. 
+In the first step in this workshop, we will host the web application (front-end) with S3 Static website hosting.
 
 1. Open [Amazon S3 console](https://s3.console.aws.amazon.com/s3/get-started?region=us-east-1).
     - Click **General purpose buckets** on the left menu.
@@ -74,7 +74,7 @@ In the first step in this workshop, we will host the web application (front-end)
 
 7. We have finished building the front-end. Next execute the following command to upload the **build** folder to S3.
   {{% notice note %}}
-  If your upload fails, configure the access key ID, secret access key, aws region and output format with **aws configure** command
+  If your upload fails, configure the access key ID, secret access key, aws region and output format with **aws configure** command.
   {{% /notice %}}
 
     ```bash
@@ -90,7 +90,7 @@ In the first step in this workshop, we will host the web application (front-end)
     - Scroll down to the bottom and get the url from **Bucket website endpoint**.
       ![S3Console](/images/temp/1/13.png?width=90pc)
 
-9. Click on the **http://fcj-book-shop-by-myself.s3-website-us-east-1.amazonaws.com** url and check the result.
+9. Click on the <http://fcj-book-shop-by-myself.s3-website-us-east-1.amazonaws.com> url and check the result.
     ![S3Console](/images/temp/1/14.png?width=90pc)
 
 Your application currently has no data returned. To get data from DynamoDB, go to the next section.
