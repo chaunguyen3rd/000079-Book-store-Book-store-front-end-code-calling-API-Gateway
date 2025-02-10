@@ -16,10 +16,10 @@ Kiến trúc của ứng dụng chúng ta sẽ xây dựng:
 
 ### Nội dung
 
- 1. [Giới thiệu](1-introduce/)
- 2. [Triển khai front-end](2-front-end-deployment/)
- 3. [Triển khai Lambda function](3-deploy-lambda-function/)
- 4. [Cấu hình API Gateway](4-config-api-gw/)
- 5. [Kiểm tra API với Postman](5-test-api-by-postman/)
- 6. [Kiểm tra API với front-end](6-test-front-end/)
- 7. [Dọn dẹp tài nguyên](7-cleanup)
+1. [Giới thiệu](1-introduce/)
+2. [Triển khai front-end](2-front-end-deployment/)
+3. [Triển khai Lambda function](3-deploy-lambda-function/)
+4. [Cấu hình API Gateway](4-config-api-gw/)
+5. [Kiểm tra API với Postman](5-test-api-by-postman/)
+6. [Kiểm tra API với front-end](6-test-front-end/)
+7. [Dọn dẹp tài nguyên](7-cleanup)

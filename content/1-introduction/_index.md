@@ -16,9 +16,11 @@ API Gateway handles all the tasks involved in accepting and processing up to hun
 #### API Types
 
 ##### RESTful APIs
+
 Build RESTful APIs optimized for serverless workloads and HTTP backends using HTTP APIs. HTTP APIs are the best choice for building APIs that only require API proxy functionality. If your APIs require API proxy functionality and API management features in a single solution, API Gateway also offers REST APIs.
 
 ##### WEBSOCKET APIs
+
 Build real-time two-way communication applications, such as chat apps and streaming dashboards, with WebSocket APIs. API Gateway maintains a persistent connection to handle message transfer between your backend service and your clients.
 
 #### How API Gateway Works

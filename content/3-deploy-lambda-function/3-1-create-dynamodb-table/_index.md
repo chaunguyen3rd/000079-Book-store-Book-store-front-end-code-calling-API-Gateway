@@ -5,6 +5,7 @@ weight : 1
 chapter : false
 pre : " <b> 3.1 </b> "
 ---
+
 1. Open [DynamoDB console](https://us-east-1.console.aws.amazon.com/dynamodbv2/home?region=us-east-1#dashboard).
     - Click the **Tables** on the left menu.
     - Click the **Create table** button.
