@@ -1,6 +1,6 @@
 ---
 title : "Tạo phương thức"
-date :  "`r Sys.Date()`" 
+date :  2025-02-11
 weight : 1
 chapter : false
 pre : " <b> 4.1 </b> "

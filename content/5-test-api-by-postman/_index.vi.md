@@ -1,6 +1,6 @@
 ---
 title : "Kiểm tra API bằng Postman"
-date :  "`r Sys.Date()`" 
+date :  2025-02-11
 weight : 5
 chapter : false
 pre : " <b> 5. </b> "

@@ -1,6 +1,6 @@
 ---
 title : "Thiết lập và kích hoạt CORS"
-date :  "`r Sys.Date()`" 
+date :  2025-02-11
 weight : 2
 chapter : false
 pre : " <b> 4.2 </b> "

@@ -1,6 +1,6 @@
 ---
 title : "Config API Gateway"
-date :  "`r Sys.Date()`" 
+date :  2025-02-11
 weight : 4
 chapter : false
 pre : " <b> 4. </b> "

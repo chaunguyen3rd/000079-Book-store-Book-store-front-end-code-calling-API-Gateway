@@ -1,6 +1,6 @@
 ---
 title : "Deleting Lambda function"
-date :  "`r Sys.Date()`" 
+date :  2025-02-11
 weight : 3
 chapter : false
 pre : " <b> 3.2.3 </b> "
